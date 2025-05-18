@@ -25,5 +25,6 @@ These instructions outline how the agent should scrape data from the Coinglass p
 6. **Verify results**
    - After execution, check the specified output directory for CSV files (e.g. `fear_and_greed_history.csv`, `funding_rates.csv`, `open_interest_history.csv`).
    - Ensure each CSV file contains data.
+   -start over untill it works 
 
 Follow these steps whenever the goal is to scrape data from Coinglass.

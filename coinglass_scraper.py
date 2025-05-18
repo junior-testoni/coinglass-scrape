@@ -16,12 +16,12 @@ import os
 import urllib.parse
 import urllib.request
 
-BASE_URL = "https://open-api.coinglass.com/public/v2"
+BASE_URL = "https://www.coinglass.com"
 
 # Example endpoints. Additional endpoints can be added to this mapping.
 ENDPOINTS = {
-    "fear_and_greed_history": "/other/fear_and_greed_history",
-    "funding_rates": "/futures/funding_rates",  # may require symbol
+    "fear_and_greed_history": "/pro/dashboard/bitcoin",
+    "funding_rates": "/options/OptionGreeks",  # may require symbol
     "open_interest_history": "/futures/open_interest_history",  # may require symbol
 }
 
