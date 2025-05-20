@@ -16,13 +16,16 @@ import os
 import urllib.parse
 import urllib.request
 
-BASE_URL = "https://www.coinglass.com"
+# Default base URL for the Coinglass open API v4
+BASE_URL = "https://open-api-v4.coinglass.com"
 
 # Example endpoints. Additional endpoints can be added to this mapping.
 ENDPOINTS = {
-    "fear_and_greed_history": "/pro/dashboard/bitcoin",
-    "funding_rates": "/options/OptionGreeks",  # may require symbol
-    "open_interest_history": "/futures/open_interest_history",  # may require symbol
+    "fear_and_greed_history": "/api/pro/dashboard/bitcoin",
+    "funding_rates": "/api/options/OptionGreeks",  # may require symbol
+    "open_interest_history": "/api/futures/open_interest_history",  # may require symbol
+    # New endpoint for options max pain data
+    "option_max_pain": "/api/option/max-pain",
 }
 
 
@@ -55,7 +58,9 @@ def save_list_of_dicts(items: list[dict], filepath: str) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Scrape data from Coinglass and store as CSV files")
-    parser.add_argument("--api-key", help="Coinglass API key if required", default=None)
+    default_key = os.getenv("COINGLASS_API_KEY")
+    parser.add_argument("--api-key", help="Coinglass API key if required", default=default_key)
+    parser.add_argument("--exchange", help="Exchange for option data", default="Deribit")
     parser.add_argument("--symbol", help="Symbol to query (e.g. BTC)", default="BTC")
     parser.add_argument("--output-dir", help="Directory to store CSV files", default="data")
     args = parser.parse_args()
@@ -63,7 +68,11 @@ def main() -> None:
     os.makedirs(args.output_dir, exist_ok=True)
 
     for name, endpoint in ENDPOINTS.items():
-        params = {"symbol": args.symbol} if "symbol" in endpoint else None
+        params = {}
+        if "symbol" in endpoint:
+            params["symbol"] = args.symbol
+        if "option" in endpoint and "exchange" not in params:
+            params["exchange"] = args.exchange
         try:
             data = fetch(endpoint, params=params, api_key=args.api_key)
             if isinstance(data, dict):
