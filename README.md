@@ -8,15 +8,9 @@ CSV files.
 
 Run `coinglass_scraper.py` to fetch a few example indicators (fear and
 greed history, funding rates, open interest history, and option max pain).
-5fc0hd-codex/integrate-api-and-fetch-data-from-options
 A default API key is included in the script for convenience. You can
 override it via the `--api-key` option or the `COINGLASS_API_KEY`
 environment variable if you prefer to supply your own key.
-
-A Coinglass API key can be supplied via the `--api-key` option or through
-the `COINGLASS_API_KEY` environment variable if the API endpoint requires
-authentication.
- main
 
 ```bash
 python coinglass_scraper.py --symbol BTC --output-dir data

@@ -16,11 +16,9 @@ import os
 import urllib.parse
 import urllib.request
 
- 5fc0hd-codex/integrate-api-and-fetch-data-from-options
 # Default API key used if no environment variable or command-line option is provided
 DEFAULT_API_KEY = "4f36824699cd4ebeb4b315b8b5927ac9"
 
-main
 # Default base URL for the Coinglass open API v4
 BASE_URL = "https://open-api-v4.coinglass.com"
 
@@ -63,11 +61,7 @@ def save_list_of_dicts(items: list[dict], filepath: str) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Scrape data from Coinglass and store as CSV files")
- 5fc0hd-codex/integrate-api-and-fetch-data-from-options
     default_key = os.getenv("COINGLASS_API_KEY", DEFAULT_API_KEY)
-=======
-    default_key = os.getenv("COINGLASS_API_KEY")
- main
     parser.add_argument("--api-key", help="Coinglass API key if required", default=default_key)
     parser.add_argument("--exchange", help="Exchange for option data", default="Deribit")
     parser.add_argument("--symbol", help="Symbol to query (e.g. BTC)", default="BTC")
