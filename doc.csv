@@ -1,0 +1,432 @@
+"read"
+"🔐 AuthenticationAll requests to the CoinGlass API require authentication using a unique, user-specific API Key.
+Requests without a valid API Key or missing headers will be rejected with an authentication error.
+
+
+🧾 How to Get an API Key
+To get started, log in to your account and generate your API Key from your API Key Dashboard.
+✅ Example Usage
+curlcurl -request GET
+--url  'https://open-api-v4.coinglass.com/api/futures/supported-coins'
+--header 'accept: application/json'\
+--header 'CG-API-KEY: API\_KEY'
+
+
+📦 Header Requirement
+Every request must include the following HTTP header:
+CG-API-KEY: your_api_key_here
+If this header is missing or the API Key is invalid, the request will be denied with a 401 Unauthorized error. ❗Updated 29 days ago 🔰 Introduction❗ Errors & Rate LimitsDid this page help you?YesNo"
+"🔍 Endpoint OverviewCoinGlass API provides a rich set of endpoints that cover a wide range of crypto market data, including Futures, Spot, Options, ETF, On-Chain, and Index data. Below is a categorized overview of all available endpoints to help you navigate and integrate efficiently.
+EndpointsDescriptionMarket/futures/supported-coinsGet supported futures coins/futures/supported-exchange-pairsGet supported exchanges and pairs/api/futures/pairs-marketsFutures pair markets/api/futures/coins-marketsFutures coin markets/futures/price-change-listPrice change list/api/price/ohlc-historyPrice OHLC historyOpen Interest/api/futures/openInterest/ohlc-historyOpen interest OHLC history/api/futures/openInterest/ohlc-aggregated-historyAggregated OI OHLC history/api/futures/openInterest/ohlc-aggregated-stablecoinAggregated stablecoin OI OHLC/api/futures/openInterest/ohlc-aggregated-coin-margin-historyAggregated coin margin OI OHLC/api/futures/openInterest/exchange-listOI by exchange list/api/futures/openInterest/exchange-history-chartOI chart by exchangeFunding Rate/api/futures/fundingRate/ohlc-historyFunding rate OHLC history/api/futures/fundingRate/oi-weight-ohlc-historyOI-weighted funding rate OHLC/api/futures/fundingRate/vol-weight-ohlc-historyVolume-weighted funding rate OHLC/api/futures/fundingRate/exchange-listFunding rate by exchange list/api/futures/fundingRate/accumulated-exchange-listCumulative funding rate list/api/futures/fundingRate/arbitrageFunding arbitrage opportunitiesLong/Short Ratio/api/futures/global-long-short-account-ratio/historyGlobal long/short account ratio/api/futures/top-long-short-account-ratio/historyTop trader long/short ratio/api/futures/top-long-short-position-ratio/historyTop trader position ratio/api/futures/taker-buy-sell-volume/exchange-listExchange Taker Buy/Sell RatioLiquidation/api/futures/liquidation/historyPair Liquidation History/api/futures/liquidation/aggregated-historyCoin Liquidation History/api/futures/liquidation/coin-listLiquidation Coin List/api/futures/liquidation/exchange-listLiquidation Exchange List/api/futures/liquidation/orderLiquidation Order/api/futures/liquidation/heatmap/model1Pair Liquidation Heatmap Model1/api/futures/liquidation/heatmap/model2Pair Liquidation Heatmap Model2/api/futures/liquidation/heatmap/model3Pair Liquidation Heatmap Model3/api/futures/liquidation/aggregated-heatmap/model1Coin Liquidation Heatmap Model1/api/futures/liquidation/aggregated-heatmap/model2Coin Liquidation Heatmap Model2/api/futures/liquidation/aggregated-heatmap/model3Coin Liquidation Heatmap Model3/api/futures/liquidation/mapPair Liquidation Map/api/futures/liquidation/aggregated-mapCoin Liquidation MapOrder Book/api/futures/orderbook/ask-bids-historyPair Orderbook Bid&Ask(±range)/api/futures/orderbook/aggregated-ask-bids-historyCoin Orderbook Bid&Ask(±range)/api/futures/orderbook/historyOrderbook Heatmap/api/futures/orderbook/large-limit-orderLarge Orderbook/api/futures/orderbook/large-limit-order-historyLarge Orderbook HistoryWhale Postions/api/hyperliquid/whale-alertHyperliquid Whale Alert/api/hyperliquid/whale-positionHyperliquid Whale PositionTaker Buy/Sell/api/futures/taker-buy-sell-volume/historyPair Taker Buy/Sell History/api/futures/aggregated-taker-buy-sell-volume/historyCoin Taker Buy/Sell HistorySpots/api/spot/supported-coinsSupported Coins/api/spot/supported-exchange-pairsSuported Exchange and Pairs/api/spot/coins-marketsCoins Markets/api/spot/pairs-marketsPairs Markets/api/spot/price/historyPrice OHLC HistoryOrder Book/api/spot/orderbook/ask-bids-historyPair Orderbook Bid&Ask(±range)/api/spot/orderbook/aggregated-ask-bids-historyCoin Orderbook Bid&Ask(±range)/api/spot/orderbook/historyOrderbook Heatmap/api/spot/orderbook/large-limit-orderLarge Orderbook/api/spot/orderbook/large-limit-order-historyLarge Orderbook HistoryTaker Buy/Sell/api/spot/taker-buy-sell-volume/historyPair Taker Buy/Sell History/api/spot/aggregated-taker-buy-sell-volume/historyCoin Taker Buy/Sell HistoryOptions/api/option/max-painOption Max Pain/api/option/infoOptions Info/api/option/exchange-oi-historyExchange Open Interest History/api/option/exchange-vol-historyExchange Volume HistoryOn-Chain/api/exchange/assetsExchange Assets/api/exchange/balance/listExchange Balance List/api/exchange/balance/chartExchange Balance Chart/api/exchange/chain/tx/listExchange On-chain Transfers (ERC-20)ETF/api/etf/bitcoin/listBitcoin ETF List/api/hk-etf/bitcoin/flow-historyHong Kong ETF Flows History/api/etf/bitcoin/net-assets/historyETF NetAssets History/api/etf/bitcoin/flow-historyETF Flows History/api/etf/bitcoin/premium-discount/historyETF Premium/Discount History/api/etf/bitcoin/historyETF History/api/etf/bitcoin/price/historyETF Price History/api/etf/bitcoin/detailETF Detail/api/etf/ethereum/net-assets-historyETF NetAssets History/api/etf/ethereum/listEthereum ETF List/api/etf/ethereum/flow-historyETF Flows History/api/grayscale/holdings-listHoldings List/api/grayscale/premium-historyPremium HistoryIndic/api/futures/rsi/listRSI List/api/futures/basis/historyFutures Basis/api/coinbase-premium-indexCoinbase Premium Index/api/bitfinex-margin-long-shortBitfinex Margin Long/Short/api/index/ahr999AHR999/api/index/puell-multiplePuell-Multiple/api/index/stock-flowStock-to-Flow Model/api/index/pi-cycle-indicatorPi Cycle Top Indicator/api/index/golden-ratio-multiplierGolden-Ratio-Multiplier/api/index/bitcoin/profitable-daysBitcoin Profitable Days/api/index/bitcoin/rainbow-chartBitcoin-Rainbow-Chart/api/index/fear-greed-historyCrypto Fear & Greed Index/api/index/stableCoin-marketCap-historyStableCoin MarketCap History/api/index/bitcoin/bubble-indexBitcoin Bubble Index/api/bull-market-peak-indicatorBull Market Peak Indicators/api/index/2-year-ma-multiplierTow Year Ma Multiplier/api/index/200-week-moving-average-heatmap200-Week Moving Avg Heatmap/api/borrow-interest-rate/historyBorrow Interest Rate
+
+
+
+
+	
+
+
+	
+
+
+	Updated 28 days ago ❗ Errors & Rate Limits📝 Change LogDid this page help you?YesNo"
+"📝 Change LogStay up to date with the latest updates, improvements, and changes to the CoinGlass API. We are continuously improving our services to provide better data accuracy, reliability, and developer experience.
+
+
+2025-3-13
+New endpoints：
+
+
+Hyperliquid Whale Alert
+/api/hyperliquid/whale-alert
+
+
+Hyperliquid Whale Position
+/api/hyperliquid/whale-position
+
+
+
+
+
+
+2024-10-14
+New endpoints：
+Futures Trade Order
+/futures-trade-order
+
+
+
+
+2024-10-10
+New endpoints：
+Exchange On-chain Transfers
+/exchange-onchain-transfers
+
+
+
+
+2024-9-29
+New endpoints：
+Price OHLC History
+/price-ohlc-history
+
+
+ETF NetAssets History
+/bitcoin-etf-netassets-history
+
+
+2024-9-05
+New endpoints：
+Liquidation Order - WebSocket
+Channel: liquidationOrders
+
+
+2024-8-14
+New endpoints：
+Orderbook Heatmap
+/api/orderbook/history
+
+
+Large Orderbook
+/api/orderbook/large-limit-order
+
+
+Large Orderbook History
+/api/orderbook/large-limit-order-history
+
+
+
+
+2024-8-2
+New endpoints：
+Bitcoin ETF List
+•/api/bitcoin/etf/list
+
+
+Hong Kong ETF Flows History
+•/api/bitcoin/hk/etf/flow-history
+
+
+Bitcoin ETF Flows History
+•/api/bitcoin/etf/flow-history
+
+
+Ethereum ETF List
+•/api/ethereum/etf/list
+
+
+Ethereum ETF Flows History
+•/api/ethereum/etf/flow-history
+
+
+2024-5-11
+New endpoints：
+Futures OrderBook Bid&Ask
+• /api/futures/orderbook/history
+
+
+Futures Aggregated OrderBook Bid&Ask
+• /api/futures/orderbook/aggregated-history
+
+
+Futures RSI List
+• /api/futures/rsi/list
+
+
+Spot Taker Buy/Sell History
+• /api/spot/takerBuySellVolume/history
+
+
+Spot Aggregated Taker Buy/Sell History
+• /api/spot/aggregatedTakerBuySellVolume/history
+
+
+Spot OrderBook Bid&Ask
+• /api/spot/orderbook/history
+
+
+Spot Aggregated OrderBook Bid&Ask
+• /api/spot/orderbook/aggregated-history
+
+
+Spot Coins Markets
+• /api/spot/coins-markets
+
+
+Spot Pairs Markets
+• /api/spot/pairs-marketsUpdated about 1 month ago 🔍 Endpoint OverviewFuturesDid this page help you?YesNo"
+"❗ Errors & Rate Limits📡  API Response Status Codes
+The CoinGlass API uses standard HTTP status codes to indicate the success or failure of your requests. Refer to the table below for a quick understanding of common response codes:
+Status CodeDescription0Successful Request400Missing or invalid parameters401Invalid or missing API key404The requested resource does not exist405Unsupported HTTP method408The request took too long to complete422Parameters valid but not acceptable429Rate limit exceeded500An unexpected error occurred on the server
+🚦 Rate Limits
+The rate limit is depending on the paid plan that you're subscribed to. this pageUpdated 29 days ago 🔐 Authentication🔍 Endpoint OverviewDid this page help you?YesNo"
+"Version 3.0Old Version 3.0 : https://docs.coinglass.com/reference/coins#/versionsUpdated 28 days ago Futures Trade OrderDid this page help you?YesNo"
+"Supported Coinsget https://open-api-v4.coinglass.com/api/spot/supported-coinsThis endpoint allows you to query all the supported spot coins on CoinGlass.Log in to see full request historytimestatususer agent Make a request to see history.0 Requests This MonthURL ExpiredThe URL for this request expired after 30 days.CloseCache / Update Frequency: every 1 minutes for all the API plans.
+This endpoint is available on the following API plans：
+PlansHobbyistStartupStandardProfessionalEnterpriseAvailable✅✅✅✅✅
+Response Data
+JSON{
+  ""code"": ""0"",
+  ""msg"": ""success"",
+  ""data"": [
+    ""BTC"",
+    ""ETH"",
+    ""USDT"",
+    ""BNB"",
+    ""SOL"",
+    ""USDC"",
+    ...
+  ]
+}Responses 200200Response bodyobject 400400Response bodyobjectUpdated 28 days ago SpotsSuported Exchange and PairsDid this page help you?YesNo"
+"Supported Coinsget https://open-api-v4.coinglass.com/api/futures/supported-coinsThis endpoint allows you to query all the supported coins on CoinGlassLog in to see full request historytimestatususer agent Make a request to see history.0 Requests This MonthURL ExpiredThe URL for this request expired after 30 days.CloseCache / Update Frequency: every 1 minutes for all the API plans.
+This endpoint is available on the following API plans：
+PlansHobbyistStartupStandardProfessionalEnterpriseAvailable✅✅✅✅✅
+Response Data
+JSON{
+  ""code"": ""0"",
+  ""msg"": ""success"",
+  ""data"": [
+      ""BTC"",
+      ""ETH"",
+      ""SOL"",
+      ""XRP"",
+      ...
+  ]
+}Responses 200200Response bodyjson 400400Updated 28 days ago FuturesSuported Exchange and PairsDid this page help you?YesNo"
+"RSI Listget https://open-api-v4.coinglass.com/api/futures/rsi/listThis endpoint provides the Relative Strength Index (RSI) values for multiple cryptocurrencies across different timeframes.Log in to see full request historytimestatususer agent Make a request to see history.0 Requests This MonthURL ExpiredThe URL for this request expired after 30 days.CloseCache / Update Frequency: every 10 second for all the API plans.
+This endpoint is available on the following API plans：
+PlansHobbyistStartupStandardProfessionalEnterpriseAvailable❌❌✅✅✅
+Response Data
+JSON{
+  ""code"": ""0"",
+  ""msg"": ""success"",
+  ""data"": [
+    {
+      ""symbol"": ""BTC"",                                  // Token symbol, e.g., BTC = Bitcoin
+      ""rsi_15m"": 54.71,                                 // RSI (Relative Strength Index) over 15 minutes
+      ""price_change_percent_15m"": 0.04,                 // Price change percentage over 15 minutes
+      ""rsi_1h"": 71.91,                                  // RSI over 1 hour
+      ""price_change_percent_1h"": -0.23,                 // Price change percentage over 1 hour
+      ""rsi_4h"": 72.12,                                  // RSI over 4 hours
+      ""price_change_percent_4h"": -0.09,                 // Price change percentage over 4 hours
+      ""rsi_12h"": 62.33,                                 // RSI over 12 hours
+      ""price_change_percent_12h"": 2.72,                 // Price change percentage over 12 hours
+      ""rsi_24h"": 57.88,                                 // RSI over 24 hours
+      ""price_change_percent_24h"": 3.4,                  // Price change percentage over 24 hours
+      ""rsi_1w"": 52.04,                                  // RSI over 1 week
+      ""price_change_percent_1w"": 2.6,                   // Price change percentage over 1 week
+      ""current_price"": 87348.6                          // Current market price
+    },
+    {
+      ""symbol"": ""ETH"",                                  // Token symbol, e.g., ETH = Ethereum
+      ""rsi_15m"": 54.35,                                 // RSI over 15 minutes
+      ""price_change_percent_15m"": -0.13,                // Price change percentage over 15 minutes
+      ""rsi_1h"": 67.93,                                  // RSI over 1 hour
+      ""price_change_percent_1h"": -0.26,                 // Price change percentage over 1 hour
+      ""rsi_4h"": 63.6,                                   // RSI over 4 hours
+      ""price_change_percent_4h"": 0.2,                   // Price change percentage over 4 hours
+      ""rsi_12h"": 52.09,                                 // RSI over 12 hours
+      ""price_change_percent_12h"": 3.41,                 // Price change percentage over 12 hours
+      ""rsi_24h"": 45.03,                                 // RSI over 24 hours
+      ""price_change_percent_24h"": 3.27,                 // Price change percentage over 24 hours
+      ""rsi_1w"": 33.31,                                  // RSI over 1 week
+      ""price_change_percent_1w"": 3.45,                  // Price change percentage over 1 week
+      ""current_price"": 1641.36                          // Current market price
+    }
+  ]
+}
+Responses 200200Response bodyobject 400400Response bodyobjectUpdated 28 days ago IndicFutures BasisDid this page help you?YesNo"
+"Option Max Painget https://open-api-v4.coinglass.com/api/option/max-painThis endpoint provides the max pain price for options.Log in to see full request historytimestatususer agent Make a request to see history.0 Requests This MonthURL ExpiredThe URL for this request expired after 30 days.CloseCache / Update Frequency: every 1 minute for all the API plans.
+This endpoint is available on the following API plans：
+PlansHobbyistStartupStandardProfessionalEnterpriseAvailable✅✅✅✅✅
+ 
+Response Data
+JSON{
+  ""code"": ""0"",
+  ""msg"": ""success"",
+  ""data"": [
+    {
+      ""date"": ""250422"",                                   // Date (YYMMDD format)
+      ""call_open_interest_market_value"": 1616749.22,      // Call option market value (USD)
+      ""put_open_interest"": 512.5,                         // Put option open interest (contracts)
+      ""put_open_interest_market_value"": 49687.62,         // Put option market value (USD)
+      ""max_pain_price"": ""84000"",                          // Max pain price
+      ""call_open_interest"": 953.7,                        // Call option open interest (contracts)
+      ""call_open_interest_notional"": 83519113.56,         // Call option notional value (USD)
+      ""put_open_interest_notional"": 44881569.13           // Put option notional value (USD)
+    },
+    {
+      ""date"": ""250423"",                                   // Date (YYMMDD format)
+      ""call_open_interest_market_value"": 2274700.52,      // Call option market value (USD)
+      ""put_open_interest"": 1204.3,                        // Put option open interest (contracts)
+      ""put_open_interest_market_value"": 374536.01,        // Put option market value (USD)
+      ""max_pain_price"": ""85000"",                          // Max pain price
+      ""call_open_interest"": 1302.2,                       // Call option open interest (contracts)
+      ""call_open_interest_notional"": 114040373.53,        // Call option notional value (USD)
+      ""put_open_interest_notional"": 105465691.73          // Put option notional value (USD)
+    }
+  ]
+}
+Query ParamssymbolstringrequiredDefaults to BTCTrading coin (e.g., BTC,ETH). exchangestringrequiredDefaults to DeribitExchange name (e.g., Deribit, Binance, OKX). Responses 200200Response bodyobject 400400Response bodyobjectUpdated 28 days ago Coin Taker Buy/Sell HistoryOptions InfoDid this page help you?YesNo"
+"Liquidation OrderThe liquidation order snapshot streams provide information on forced liquidation orders for market symbols.# Required Account Level: Standard Edition and Above
+Real-Time Liquidation Orders Push
+Channel: liquidationOrders
+To subscribe to the liquidationOrders channel, send the following message:
+JSON{
+    ""method"": ""subscribe"",
+    ""channels"": [""liquidationOrders""]
+}
+Response Example
+Upon receiving data, the response will look like this:
+JSON{
+    ""channel"": ""liquidationOrders"",
+    ""data"": [
+        {
+            ""baseAsset"": ""BTC"",
+            ""exName"": ""Binance"",
+            ""price"": 56738.00,
+            ""side"": 2, //side=1   Long liquidation     side=2   Short liquidation
+            ""symbol"": ""BTCUSDT"",
+            ""time"": 1725416318379,
+            ""volUsd"": 3858.18400
+        }
+    ]
+}Updated 2 months ago Getting StartedFutures Trade OrderDid this page help you?YesNo"
+"Getting StartedBase URL
+wss://open-ws.coinglass.com/ws-api
+Connection
+To connect, use the following URL with your API key:
+wss://open-ws.coinglass.com/ws-api?cg-api-key={your_api_key}
+Connection Handling
+
+The system will automatically disconnect if there are network issues.
+To maintain a stable connection, it is recommended to send a 'ping' message every 20 seconds. Expect a 'pong' response.
+
+Subscription
+To subscribe to a channel, send the following message:
+JSON{
+    ""method"": ""subscribe"",
+    ""channels"": [""liquidationOrders""]
+}
+Unsubscription
+To unsubscribe from a channel, send the following message:
+JSON{
+    ""method"": ""unsubscribe"",
+    ""channels"": [""liquidationOrders""]
+}
+Response Example
+Upon receiving data, the response will look like this:
+JSON{
+    ""channel"": ""liquidationOrders"",
+    ""data"": [
+        {
+            ""baseAsset"": ""BTC"",
+            ""exName"": ""Binance"",
+            ""price"": 56738.00,
+            ""side"": 2,
+            ""symbol"": ""BTCUSDT"",
+            ""time"": 1725416318379,
+            ""volUsd"": 3858.18400
+        }
+    ]
+}
+
+This format ensures clarity and ease of use when interacting with the WebSocket API.Updated 2 months ago 200-Week Moving Avg HeatmapLiquidation OrderDid this page help you?YesNo"
+"Futures Trade OrderThe futures trade order streams provide real-time information on executed futures trades for market symbols.# Required Account Level: Standard Edition and Above
+Text# Real-Time Futures Trade Orders Push
+
+## Channel: `futures_trades@``{exchange}`_`{symbol}`@``{minVol}`
+
+To subscribe to the `futures_trades` channel, send the following message: 
+
+
+
+
+JSON{
+    ""method"": ""subscribe"",
+    ""channels"": [""futures_trades@Binance_BTCUSDT@10000""]
+}
+Response Example
+Upon receiving data, the response will look like this:
+JSON{
+    ""channel"": ""futures_trades@Binance_BTCUSDT@10000"",
+    ""data"": [
+        {
+            ""baseAsset"": ""BTC"",
+            ""exName"": ""Binance"",
+            ""price"": 56738.00,
+            ""side"": 2,//side=1  sell.   side=2   buy   
+            ""symbol"": ""BTCUSDT"",
+            ""time"": 1725416318379,
+            ""volUsd"": 3858.18400
+        }
+    ]
+}
+
+
+Response Example
+Upon receiving data, the response will look like this:Updated about 2 months ago Liquidation OrderVersion 3.0Did this page help you?YesNo"
+"Exchange Assetsget https://open-api-v4.coinglass.com/api/exchange/assetsThis endpoint provides asset holdings data for exchange wallets, including wallet address, asset balance, USD value, and real-time price information for each asset.Log in to see full request historytimestatususer agent Make a request to see history.0 Requests This MonthURL ExpiredThe URL for this request expired after 30 days.CloseCache / Update Frequency: every 1 hour for all the API plans.
+This endpoint is available on the following API plans：
+PlansHobbyistStartupStandardProfessionalEnterpriseAvailable✅✅✅✅✅
+Respones Data
+JSON{
+  ""code"": ""0"",
+  ""msg"": ""success"",
+  ""data"": [
+    {
+      ""wallet_address"": ""34xp4vRoCGJym3xR7yCVPFHoCNxv4Twseo"",
+      ""balance"": 248597.54,
+      ""balance_usd"": 21757721869.92,
+      ""symbol"": ""BTC"",
+      ""assets_name"": ""Bitcoin"",
+      ""price"": 87521.87117346626
+    },
+    {
+      ""wallet_address"": ""3M219KR5vEneNb47ewrPfWyb5jQ2DjxRP6"",
+      ""balance"": 139456.08,
+      ""balance_usd"": 12205457068.12,
+      ""symbol"": ""BTC"",
+      ""assets_name"": ""Bitcoin"",
+      ""price"": 87521.87117346626
+    },Query ParamsexchangestringrequiredDefaults to BinanceExchange name (e.g., Binance). Retrieve supported exchanges via the 'support-exchange-pair' API.per_pagestringDefaults to 10Number of results per page.pagestringDefaults to 1Page number for pagination, default: 1Response 200Response bodyjsonUpdated 28 days ago On-ChainExchange Balance ListDid this page help you?YesNo"
+"Bitcoin ETF Listget https://open-api-v4.coinglass.com/api/etf/bitcoin/listThis endpoint provides a list of key status information for Bitcoin Exchange-Traded Funds (ETFs).Log in to see full request historytimestatususer agent Make a request to see history.0 Requests This MonthURL ExpiredThe URL for this request expired after 30 days.CloseCache / Update Frequency: Real time for all the API plans.
+This endpoint is available on the following API plans：
+PlansHobbyistStartupStandardProfessionalEnterpriseAvailable✅✅✅✅✅
+Response Data
+JSON{
+  ""code"": ""0"",
+  ""msg"": ""success"",
+  ""data"": [
+    {
+      ""ticker"": ""GBTC"",                                // ETF identifier
+      ""fund_name"": ""Grayscale Bitcoin Trust ETF"",      // Fund name
+      ""region"": ""us"",                                  // Region
+      ""market_status"": ""early_trading"",                // Market status (open/closed/early_trading, etc.)
+      ""primary_exchange"": ""ARCX"",                      // Primary exchange
+      ""cik_code"": ""0001588489"",                        // CIK code (unique identifier)
+      ""fund_type"": ""Spot"",                             // Fund type (Spot/ETF/Futures, etc.)
+      ""list_date"": 1424822400000,                      // Listing date (timestamp in milliseconds)
+      ""shares_outstanding"": ""240750100"",               // Shares outstanding
+      ""aum_usd"": ""16137543152.34"",                     // Assets under management (USD)
+      ""management_fee_percent"": ""1.5"",                 // Management fee (%)
+      ""last_trade_time"": 1745225312958,                // Last trade time (timestamp in milliseconds)
+      ""last_quote_time"": 1745225389483,                // Last quote time (timestamp in milliseconds)
+      ""volume_quantity"": 1068092,                      // Volume quantity
+      ""volume_usd"": 71485902.2312,                     // Volume in USD
+      ""price_change_usd"": 0.47,                        // Price change (USD)
+      ""price_change_percent"": 0.71,                    // Price change (%)
+      ""asset_details"": {
+        ""net_asset_value_usd"": 67.03,                  // Net asset value (USD)
+        ""premium_discount_percent"": 0.09,              // Premium/discount rate (%)
+        ""btc_holding"": 190124.5441,                    // BTC balance
+        ""btc_change_percent_24h"": 0,                   // 24h BTC change (%)
+        ""btc_change_24h"": -7.8136,                     // 24h BTC change amount
+        ""btc_change_percent_7d"": -0.32,                // 7d BTC change (%)
+        ""btc_change_7d"": -615.563,                     // 7d BTC change amount
+        ""update_date"": ""2025-04-17""                    // Update date
+      },
+      ""update_timestamp"": 1745224505000                // Data update timestamp (milliseconds)
+    }
+  ]
+}
+Responses 200200Response bodyobject 400400Response bodyobjectUpdated 28 days ago ETFHong Kong ETF Flows HistoryDid this page help you?YesNo"
