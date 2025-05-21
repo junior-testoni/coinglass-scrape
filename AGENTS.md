@@ -1,33 +1,14 @@
 # AGENT Instructions
 
-These instructions outline how the agent should scrape data from the Coinglass public API using the existing `coinglass_scraper.py` script in this repository.
+These scripts retrieve data from the Coinglass public API. Ensure you have Python 3 installed and a valid API key.
 
-1. **Verify required files**
-   
-   - Ensure `coinglass_scraper.py` exists in the repository root. This script contains the logic for contacting the Coinglass API.
+1. **Provide your API key**
+   - Every request must include the HTTP header `CG-API-KEY: <your key>`. Missing or invalid keys result in a 401 error.
+   - Supply the key using `--api-key YOUR_KEY` or the `COINGLASS_API_KEY` environment variable.
 
-2. **Check for Python availability**
-   - Confirm that Python 3 is installed by running `python --version`.
+2. **Run a script**
+   - Example: `python coinglass_scraper.py --symbol BTC --output-dir data --api-key YOUR_KEY`
+   - For open interest only: `python current_oi.py --symbol BTC --output current_oi.csv --api-key YOUR_KEY`
 
-3. **read documentation**
-   - doc.csv has information on how to use api 
-
-   - Run `python coinglass_scraper.py --help` to view available arguments.
-
-4. **Prepare parameters**
-   - Choose a symbol to query (e.g. `BTC`).
-   - If the API requires authentication, provide the API key via `--api-key YOUR_KEY`.
-   - Decide where to store the resulting CSV files (default is `data`).
-
-5. **Run the scraper**
-   ```bash
-   python coinglass_scraper.py --symbol BTC --output-dir data
-   ```
-   - Include `--api-key` if necessary.
-
-6. **Verify results**
-   - After execution, check the specified output directory for CSV files (e.g. `fear_and_greed_history.csv`, `funding_rates.csv`, `open_interest_history.csv`).
-   - Ensure each CSV file contains data.
-   -start over untill it works 
-
-Follow these steps whenever the goal is to scrape data from Coinglass.
+3. **Check results**
+   - CSV files will appear in the specified directory.

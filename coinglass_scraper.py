@@ -43,7 +43,10 @@ def fetch(endpoint: str, params: dict | None = None, api_key: str | None = None)
 
     req = urllib.request.Request(url)
     if api_key:
-        req.add_header("coinglassSecret", api_key)
+        # According to the CoinGlass documentation, requests must include the
+        # "CG-API-KEY" header for authentication. The old header name
+        # "coinglassSecret" no longer works.
+        req.add_header("CG-API-KEY", api_key)
 
     with urllib.request.urlopen(req) as resp:
         if resp.status != 200:
