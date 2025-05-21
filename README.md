@@ -26,3 +26,13 @@ python current_oi.py --symbol BTC --output current_oi.csv --api-key YOUR_KEY
 ```
 
 Each script writes one or more CSV files containing the returned data.
+
+## Fetching All Hobbyist Endpoints
+
+Use `fetch_hobbyist_endpoints.py` to retrieve data from every Coinglass endpoint that the free Hobbyist plan can access. The script combines the responses and stores them in a single JSON file.
+
+```bash
+python fetch_hobbyist_endpoints.py --api-key YOUR_KEY --output hobbyist_data.json
+```
+
+`hobbyist_data.json` will contain one JSON object with entries for each endpoint. Any errors are reported in the file as well.
