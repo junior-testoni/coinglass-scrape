@@ -15,7 +15,8 @@ def fetch(endpoint: str, params=None, api_key=None) -> dict:
         url += "?" + urllib.parse.urlencode(params)
     req = urllib.request.Request(url)
     if api_key:
-        req.add_header("coinglassSecret", api_key)
+        # Updated header name per official CoinGlass API documentation.
+        req.add_header("CG-API-KEY", api_key)
     with urllib.request.urlopen(req) as resp:
         if resp.status != 200:
             raise RuntimeError(f"Request failed: {resp.status}")

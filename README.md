@@ -1,27 +1,28 @@
-# fgfgfgfgfgfg
+# Coinglass Data Scraper
 
-This repository demonstrates a simple script for retrieving data from the
-[Coinglass](https://coinglass.com/) public API and storing the results in
-CSV files.
+This repository contains simple Python scripts for retrieving cryptocurrency market data from the public [Coinglass](https://coinglass.com/) API and saving it to CSV files.
 
-## Usage
+## Prerequisites
 
-Run `coinglass_scraper.py` to fetch a few example indicators (fear and
-greed history, funding rates, open interest history, and option max pain).
-A default API key is included in the script for convenience. You can
-override it via the `--api-key` option or the `COINGLASS_API_KEY`
-environment variable if you prefer to supply your own key.
+- Python 3
+- A valid Coinglass API key
 
-```bash
-python coinglass_scraper.py --symbol BTC --output-dir data
-```
+The Coinglass documentation states that every request must include the `CG-API-KEY` header. Requests without this header will be rejected with a 401 Unauthorized error.
 
-Include the `--exchange` option when retrieving option data (defaults to
-`Deribit`):
+Generate your key from your API Key Dashboard and supply it via the `--api-key` option or the `COINGLASS_API_KEY` environment variable when running the scripts.
+
+## Example Usage
+
+Fetch several indicators for Bitcoin and store them in the `data` directory:
 
 ```bash
-python coinglass_scraper.py --symbol BTC --exchange Deribit --output-dir data
+python coinglass_scraper.py --symbol BTC --output-dir data --api-key YOUR_KEY
 ```
 
-Each indicator is saved as a separate CSV file inside the specified
-output directory.
+For current open interest only, run:
+
+```bash
+python current_oi.py --symbol BTC --output current_oi.csv --api-key YOUR_KEY
+```
+
+Each script writes one or more CSV files containing the returned data.
