@@ -41,3 +41,17 @@ python fetch_hobbyist_endpoints.py --api-key YOUR_KEY --output-dir data
 The script creates the directory `data` if it does not already exist. Inside you
 will find a JSON file for every endpoint listed in `endpoints.txt`. If a request
 fails, the corresponding file will contain an error message instead of data.
+
+## Merging Endpoint Lists
+
+If you have two different files of API URLs, such as `endpoints.txt` and
+`endpoints2.txt`, you can combine them into a single file with the helper script
+`merge_endpoints.py`:
+
+```bash
+python merge_endpoints.py --file1 endpoints.txt --file2 endpoints2.txt --output endpoints_merged.txt
+```
+
+This command produces `endpoints_merged.txt`. Use that file with
+`fetch_hobbyist_endpoints.py` by adding the `--endpoints endpoints_merged.txt`
+option.
