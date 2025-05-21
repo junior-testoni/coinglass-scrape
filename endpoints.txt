@@ -9,3 +9,6 @@ Spot Supported Coins	https://open-api-v4.coinglass.com/api/spot/supported-coins	
 Option Max Pain	https://open-api-v4.coinglass.com/api/option/max-pain	Max pain price for options
 Exchange Assets	https://open-api-v4.coinglass.com/api/exchange/assets	Asset holdings data for exchange wallets
 Bitcoin ETF List	https://open-api-v4.coinglass.com/api/etf/bitcoin/list	List of Bitcoin ETF status information
+
+
+
