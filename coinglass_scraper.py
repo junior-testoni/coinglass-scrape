@@ -23,12 +23,15 @@ DEFAULT_API_KEY = "4f36824699cd4ebeb4b315b8b5927ac9"
 BASE_URL = "https://open-api-v4.coinglass.com"
 
 # Example endpoints. Additional endpoints can be added to this mapping.
+# Each entry contains the endpoint path and a list of required parameters.
 ENDPOINTS = {
-    "fear_and_greed_history": "/api/pro/dashboard/bitcoin",
-    "funding_rates": "/api/options/OptionGreeks",  # may require symbol
-    "open_interest_history": "/api/futures/open_interest_history",  # may require symbol
-    # New endpoint for options max pain data
-    "option_max_pain": "/api/option/max-pain",
+    "fear_and_greed_history": {"path": "/api/pro/dashboard/bitcoin", "params": []},
+    # Funding rates typically require a symbol parameter
+    "funding_rates": {"path": "/api/options/OptionGreeks", "params": ["symbol"]},
+    # Open interest history also expects a symbol
+    "open_interest_history": {"path": "/api/futures/open_interest_history", "params": ["symbol"]},
+    # Options max pain requires both symbol and exchange
+    "option_max_pain": {"path": "/api/option/max-pain", "params": ["symbol", "exchange"]},
 }
 
 
@@ -70,12 +73,9 @@ def main() -> None:
 
     os.makedirs(args.output_dir, exist_ok=True)
 
-    for name, endpoint in ENDPOINTS.items():
-        params = {}
-        if "symbol" in endpoint:
-            params["symbol"] = args.symbol
-        if "option" in endpoint and "exchange" not in params:
-            params["exchange"] = args.exchange
+    for name, meta in ENDPOINTS.items():
+        endpoint = meta["path"]
+        params = {p: getattr(args, p) for p in meta.get("params", [])}
         try:
             data = fetch(endpoint, params=params, api_key=args.api_key)
             if isinstance(data, dict):
