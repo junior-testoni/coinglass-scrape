@@ -17,7 +17,7 @@ import urllib.parse
 import urllib.request
 
 # Default API key used if no environment variable or command-line option is provided
-DEFAULT_API_KEY = "4f36824699cd4ebeb4b315b8b5927ac9"
+DEFAULT_API_KEY = "53b0a3236d8d4d2b9fff517c70c544ea"
 
 # Default base URL for the Coinglass open API v4
 BASE_URL = "https://open-api-v4.coinglass.com"
