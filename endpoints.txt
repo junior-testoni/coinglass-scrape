@@ -1,0 +1,11 @@
+title	link	description
+Coins Markets	https://open-api-v4.coinglass.com/api/futures/coins-markets	Performance metrics for all available futures coins
+Pairs Markets	https://open-api-v4.coinglass.com/api/futures/pairs-markets	Performance metrics for all available futures trading pairs
+Price History (OHLC)	https://open-api-v4.coinglass.com/api/futures/price/history	Historical open, high, low, close prices for cryptocurrencies
+Funding Rate History (OHLC)	https://open-api-v4.coinglass.com/api/futures/funding-rate/history	Funding rate data in candlestick format for futures trading pairs
+Open Interest Aggregated History	https://open-api-v4.coinglass.com/api/futures/open-interest/aggregated-history	Aggregated open interest data across exchanges in OHLC format
+Liquidation History	https://open-api-v4.coinglass.com/api/futures/liquidation/history	Historical long and short liquidations for a trading pair
+Spot Supported Coins	https://open-api-v4.coinglass.com/api/spot/supported-coins	List of supported spot coins
+Option Max Pain	https://open-api-v4.coinglass.com/api/option/max-pain	Max pain price for options
+Exchange Assets	https://open-api-v4.coinglass.com/api/exchange/assets	Asset holdings data for exchange wallets
+Bitcoin ETF List	https://open-api-v4.coinglass.com/api/etf/bitcoin/list	List of Bitcoin ETF status information

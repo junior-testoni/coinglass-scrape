@@ -26,3 +26,18 @@ python current_oi.py --symbol BTC --output current_oi.csv --api-key YOUR_KEY
 ```
 
 Each script writes one or more CSV files containing the returned data.
+
+## Fetching All Hobbyist Endpoints
+
+`fetch_hobbyist_endpoints.py` reads the list of URLs in `endpoints.txt` and saves the
+response from each one to its own JSON file. This script is aimed at people who
+are not comfortable with coding. Simply run the command below and look in the
+output folder for the results.
+
+```bash
+python fetch_hobbyist_endpoints.py --api-key YOUR_KEY --output-dir data
+```
+
+The script creates the directory `data` if it does not already exist. Inside you
+will find a JSON file for every endpoint listed in `endpoints.txt`. If a request
+fails, the corresponding file will contain an error message instead of data.
