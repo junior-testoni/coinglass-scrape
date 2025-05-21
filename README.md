@@ -4,12 +4,41 @@ This repository contains simple Python scripts for retrieving cryptocurrency mar
 
 ## Prerequisites
 
-- Python 3
-- A valid Coinglass API key
+All requests to the CoinGlass API require authentication using a unique, user-specific API Key.
 
-The Coinglass documentation states that every request must include the `CG-API-KEY` header. Requests without this header will be rejected with a 401 Unauthorized error.
+Requests without a valid API Key or missing headers will be rejected with an authentication error.
 
-Generate your key from your API Key Dashboard and supply it via the `--api-key` option or the `COINGLASS_API_KEY` environment variable when running the scripts.
+✅ Example Usage
+
+curl
+
+curl -request GET
+--url  '<https://open-api-v4.coinglass.com/api/futures/supported-coins>'
+--header 'accept: application/json'\
+--header 'CG-API-KEY: API\_KEY'
+
+📦 Header Requirement
+
+Every request must include the following HTTP header:
+
+CG-API-KEY: your_api_key_here
+
+If this header is missing or the API Key is invalid, the request will be denied with a 401 Unauthorized error.
+Errors & Rate Limits
+📡 API Response Status Codes
+
+The CoinGlass API uses standard HTTP status codes to indicate the success or failure of your requests. Refer to the table below for a quick understanding of common response codes:
+
+Status Code Description
+0 Successful Request
+400 Missing or invalid parameters
+401 Invalid or missing API key
+404 The requested resource does not exist
+405 Unsupported HTTP method
+408 The request took too long to complete
+422 Parameters valid but not acceptable
+429 Rate limit exceeded
+500 An unexpected error occurred on the server
 
 ## Example Usage
 
