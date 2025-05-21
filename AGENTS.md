@@ -1,6 +1,6 @@
 # AGENT Instructions
 
-These scripts retrieve data from the Coinglass public API. Ensure you have Python 3 installed and a valid API key.
+These scripts retrieve data from the Coinglass  API. Ensure you have Python 3 installed and a valid API key.
 
 1. **Provide your API key**
    - Every request must include the HTTP header `CG-API-KEY: <your key>`. Missing or invalid keys result in a 401 error.
