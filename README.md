@@ -72,6 +72,26 @@ The script creates the directory `data` if it does not already exist. Inside you
 will find files in the chosen format (CSV, JSON, or plain text). If a request
 fails, the corresponding file will contain the error message instead of data.
 
+## Fetching Endpoints by Category
+
+For convenience there is a ready-made script for every API category. Each file
+is named `fetch_<category>.py` where `<category>` matches the part after
+`/api/` in the URLs from `endpoints.txt`. For example, to download all endpoints
+under the `futures` category run:
+
+```bash
+python fetch_futures.py --api-key YOUR_KEY --output-dir my_data
+```
+
+The script automatically sets the category for you, so the only options you need
+are the API key and an output directory. Similar files exist for other
+categories such as `spot`, `etf`, and `exchange`. Check the repository for the
+available `fetch_*.py` scripts. Internally these wrappers call
+`fetch_by_category.py`.
+
+If the list of endpoints changes, run `python generate_category_scripts.py` to
+recreate the wrapper files.
+
 ## Merging Endpoint Lists
 
 If you have two different files of API URLs, such as `endpoints.txt` and
