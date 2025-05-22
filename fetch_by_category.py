@@ -1,21 +1,15 @@
 import argparse
 import json
 import os
-import requests
 from pathlib import Path
 import re
+
+from api_utils import fetch
 
 DEFAULT_API_KEY = None
 ENDPOINT_FILE = "endpoints.txt"
 
 
-def fetch(url: str, api_key: str) -> dict:
-    """Fetch JSON data from the given URL."""
-    headers = {"CG-API-KEY": api_key}
-    resp = requests.get(url, headers=headers)
-    if resp.status_code != 200:
-        raise RuntimeError(f"Request failed: {resp.status_code}")
-    return resp.json()
 
 
 def load_endpoints(file_path: str):
