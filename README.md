@@ -10,7 +10,20 @@ Requests without a valid API Key or missing headers will be rejected with an aut
 
 ## Installation
 
-Before running any of the scripts, install the required Python package. Open a terminal in this project folder and run:
+Before running any of the scripts you will need Python 3 and the `pip` package manager.
+If `pip` does not seem to work, try calling it through Python directly:
+
+```bash
+python3 -m pip --version
+```
+
+To set up everything automatically you can run the helper script `setup_env.sh` which creates a virtual environment and installs the requirements:
+
+```bash
+bash setup_env.sh
+```
+
+If you prefer to do it manually, open a terminal in this project folder and run:
 
 ```bash
 pip install -r requirements.txt
