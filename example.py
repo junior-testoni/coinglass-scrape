@@ -1,11 +1,16 @@
 # get supported coins
 import requests
+import os
 
 url = "https://open-api-v4.coinglass.com/api/futures/supported-coins"
 
+api_key = os.getenv("COINGLASS_API_KEY")
+if not api_key:
+    raise SystemExit("Please set the COINGLASS_API_KEY environment variable")
+
 headers = {
     "accept": "application/json",
-    "CG-API-KEY": "53b0a3236d8d4d2b9fff517c70c544ea",
+    "CG-API-KEY": api_key,
 }
 
 response = requests.get(url, headers=headers)
