@@ -1,0 +1,95 @@
+title	link	description
+Coins Markets	https://open-api-v4.coinglass.com/api/futures/coins-markets	Performance metrics for all available futures coins
+Pairs Markets	https://open-api-v4.coinglass.com/api/futures/pairs-markets	Performance metrics for all available futures trading pairs
+Price History (OHLC)	https://open-api-v4.coinglass.com/api/futures/price/history	Historical open, high, low, close prices for cryptocurrencies
+Funding Rate History (OHLC)	https://open-api-v4.coinglass.com/api/futures/funding-rate/history	Funding rate data in candlestick format for futures trading pairs
+Open Interest Aggregated History	https://open-api-v4.coinglass.com/api/futures/open-interest/aggregated-history	Aggregated open interest data across exchanges in OHLC format
+Liquidation History	https://open-api-v4.coinglass.com/api/futures/liquidation/history	Historical long and short liquidations for a trading pair
+Spot Supported Coins	https://open-api-v4.coinglass.com/api/spot/supported-coins	List of supported spot coins
+Option Max Pain	https://open-api-v4.coinglass.com/api/option/max-pain	Max pain price for options
+Exchange Assets	https://open-api-v4.coinglass.com/api/exchange/assets	Asset holdings data for exchange wallets
+Bitcoin ETF List	https://open-api-v4.coinglass.com/api/etf/bitcoin/list	List of Bitcoin ETF status information
+Coins Price Change	https://open-api-v4.coinglass.com/api/futures/coins-price-change	This endpoint provides percentage price changes and amplitude data for all supported coins across multiple timeframes.
+History (OHLC)	https://open-api-v4.coinglass.com/api/futures/open-interest/history	This endpoint provides open interest data in OHLC (open, high, low, close) candlestick format for futures trading pairs.
+Aggregated Stablecoin Margin History (OHLC)	https://open-api-v4.coinglass.com/api/futures/open-interest/aggregated-stablecoin-history	This endpoint provides aggregated stablecoin-margined open interest data in OHLC (open, high, low, close) candlestick format.
+Aggregated Coin Margin History (OHLC)	https://open-api-v4.coinglass.com/api/futures/open-interest/aggregated-coin-margin-history	This endpoint provides aggregated coin-margined open interest data in OHLC (open, high, low, close) candlestick format.
+Exchange List	https://open-api-v4.coinglass.com/api/futures/open-interest/exchange-list	This endpoint provides open interest data for a specific coin across multiple exchanges.
+Exchange History Chart	https://open-api-v4.coinglass.com/api/futures/open-interest/exchange-history-chart	This endpoint retrieves historical open interest data for a specific cryptocurrency across exchanges, formatted for chart display.
+OI Weight History (OHLC)	https://open-api-v4.coinglass.com/api/futures/funding-rate/oi-weight-history	This endpoint provides open interest-weighted funding rate data in OHLC (open, high, low, close) candlestick format for futures cryptocurrencies.
+Vol Weight History (OHLC)	https://open-api-v4.coinglass.com/api/futures/funding-rate/vol-weight-history	This endpoint provides volume-weighted funding rate data in OHLC (open, high, low, close) candlestick format for futures cryptocurrencies.
+Exchange List	https://open-api-v4.coinglass.com/api/futures/funding-rate/exchange-list	This endpoint provides funding rate data from exchanges.
+Cumulative Exchange List	https://open-api-v4.coinglass.com/api/futures/funding-rate/accumulated-exchange-list	This endpoint provides cumulative funding rate data from exchanges.
+Arbitrage	https://open-api-v4.coinglass.com/api/futures/funding-rate/arbitrage	This endpoint provides funding rate arbitrage data across exchanges for futures cryptocurrencies.
+Global Account Ratio	https://open-api-v4.coinglass.com/api/futures/global-long-short-account-ratio/history	This endpoint provides the long/short account ratio history for trading pairs on a specific exchange.
+Top Account Ratio History	https://open-api-v4.coinglass.com/api/futures/top-long-short-account-ratio/history	This endpoint provides historical data for the long/short account ratio of top traders.
+Top Position Ratio History	https://open-api-v4.coinglass.com/api/futures/top-long-short-position-ratio/history	This endpoint provides historical data for the long/short position ratio of top traders.
+Exchange Taker Buy/Sell Ratio	https://open-api-v4.coinglass.com/api/futures/taker-buy-sell-volume/exchange-list	This endpoint provides the long/short ratio of aggregated taker buy/sell volumes across exchanges.
+Coin Liquidation History	https://open-api-v4.coinglass.com/api/futures/liquidation/aggregated-history	This endpoint provides aggregated historical data for both long and short liquidations of a coin across multiple exchanges.
+Liquidation Coin List	https://open-api-v4.coinglass.com/api/futures/liquidation/coin-list	This endpoint provides liquidation data for all coins on a specific exchange.
+Liquidation Exchange List	https://open-api-v4.coinglass.com/api/futures/liquidation/exchange-list	This endpoint provides liquidation data for a specific coin across all exchanges.
+Liquidation Order	https://open-api-v4.coinglass.com/api/futures/liquidation/order	This endpoint provides liquidation order data from the past 7 days, including exchange, trading pair, and liquidation amount details.
+Pair Liquidation Heatmap Model1	https://open-api-v4.coinglass.com/api/futures/liquidation/heatmap/model1	This endpoint provides liquidation levels on a heatmap chart for trading pairs, calculated based on market data and liquidation leverage levels.
+Pair Liquidation Heatmap Model2	https://open-api-v4.coinglass.com/api/futures/liquidation/heatmap/model2	This endpoint provides liquidation levels on a heatmap chart for trading pairs, calculated based on market data and liquidation leverage levels.
+Pair Liquidation Heatmap Model3	https://open-api-v4.coinglass.com/api/futures/liquidation/heatmap/model3	This endpoint provides liquidation levels on a heatmap chart for trading pairs, calculated based on market data and liquidation leverage levels.
+Coin Liquidation Heatmap Model1	https://open-api-v4.coinglass.com/api/futures/liquidation/aggregated-heatmap/model1	This endpoint provides aggregated liquidation levels on a heatmap chart, calculated based on market data and liquidation leverage levels.
+Coin Liquidation Heatmap Model2	https://open-api-v4.coinglass.com/api/futures/liquidation/aggregated-heatmap/model2	This endpoint provides aggregated liquidation levels on a heatmap chart, calculated based on market data and liquidation leverage levels.
+Coin Liquidation Heatmap Model3	https://open-api-v4.coinglass.com/api/futures/liquidation/aggregated-heatmap/model3	This endpoint provides aggregated liquidation levels on a heatmap chart, calculated based on market data and liquidation leverage levels.
+Pair Liquidation Map	https://open-api-v4.coinglass.com/api/futures/liquidation/map	This endpoint provides a mapped visualization of liquidation events for trading pairs, calculated based on market data and liquidation leverage levels.
+Coin Liquidation Map	https://open-api-v4.coinglass.com/api/futures/liquidation/aggregated-map	This endpoint provides a mapped visualization of aggregated liquidation events for coins, calculated based on market data and liquidation leverage levels.
+Pair Orderbook Bid&Ask(±range)	https://open-api-v4.coinglass.com/api/futures/orderbook/ask-bids-history	This endpoint provides historical data of the order book for futures trading, including total bid/ask volumes within a specific price range.
+Coin Aggregated Orderbook Bid&Ask(±range)	https://open-api-v4.coinglass.com/api/futures/orderbook/aggregated-ask-bids-history	This endpoint provides historical data of the aggregated order book for futures trading, including total bid/ask volumes within a specific price range.
+Orderbook Heatmap	https://open-api-v4.coinglass.com/api/futures/orderbook/history	This endpoint provides historical order book depth data for futures trading, supporting heatmap visualization.
+Large Orderbook	https://open-api-v4.coinglass.com/api/futures/orderbook/large-limit-order	This endpoint provides large open limit orders from the current order book for futures trading.
+Large Orderbook History	https://open-api-v4.coinglass.com/api/futures/orderbook/large-limit-order-history	This endpoint provides completed historical large limit orders from the order book for futures trading.
+Hyperliquid Whale Alert	https://open-api-v4.coinglass.com/api/hyperliquid/whale-alert	This endpoint provides real-time whale alerts on Hyperliquid, highlighting positions with a notional value over $1 million.
+Hyperliquid Whale Position	https://open-api-v4.coinglass.com/api/hyperliquid/whale-position	This endpoint provides whale positions on Hyperliquid with a notional value exceeding $1 million.
+Pair Taker Buy/Sell Ratio History	https://open-api-v4.coinglass.com/api/futures/taker-buy-sell-volume/history	This endpoint provides historical data for the long/short ratio of taker buy and sell volumes in futures markets.
+Coin Taker Buy/Sell Volume History	https://open-api-v4.coinglass.com/api/futures/aggregated-taker-buy-sell-volume/history	This endpoint provides historical data for the long/short ratio of aggregated taker buy and sell volumes for futures cryptocurrencies.
+Suported Exchange and Pairs	https://open-api-v4.coinglass.com/api/spot/supported-exchange-pairs	This endpoint allows you to query all supported spot trading exchanges and their corresponding trading pairs on CoinGlass.
+Coins Markets	https://open-api-v4.coinglass.com/api/spot/coins-markets	This endpoint provides performance-related metrics for all available spot coins
+Pairs Markets	https://open-api-v4.coinglass.com/api/spot/pairs-markets	This endpoint provides performance-related metrics for all available spot trading pairs
+Price OHLC History	https://open-api-v4.coinglass.com/api/spot/price/history	This endpoint provides historical open, high, low, and close (OHLC) price data for cryptocurrencies over specified timeframes.
+Pair Orderbook Bid&Ask(±range)	https://open-api-v4.coinglass.com/api/spot/orderbook/ask-bids-history	This endpoint provides historical data of the order book for spot trading, including total bid/ask volumes within a specific price range.
+Coin Orderbook Bid&Ask(±range)	https://open-api-v4.coinglass.com/api/spot/orderbook/aggregated-ask-bids-history	This endpoint provides historical data of the aggregated order book for spot trading, including total bid/ask volumes within a specific price range.
+Orderbook Heatmap	https://open-api-v4.coinglass.com/api/spot/orderbook/history	This endpoint provides historical order book depth data for spot trading, supporting heatmap visualization.
+Large Orderbook	https://open-api-v4.coinglass.com/api/spot/orderbook/large-limit-order	This endpoint provides large open limit orders from the current order book for spot trading.
+Large Orderbook History	https://open-api-v4.coinglass.com/api/spot/orderbook/large-limit-order-history	This endpoint provides completed historical large limit orders from the order book for futures trading.
+Pair Taker Buy/Sell History	https://open-api-v4.coinglass.com/api/spot/taker-buy-sell-volume/history	This endpoint provides historical data for the long/short ratio of taker buy and sell volumes in spot markets.
+Coin Taker Buy/Sell History	https://open-api-v4.coinglass.com/api/spot/aggregated-taker-buy-sell-volume/history	This endpoint provides historical data for the long/short ratio of aggregated taker buy and sell volumes for spot cryptocurrencies.
+Options Info	https://open-api-v4.coinglass.com/api/option/info	This endpoint provides detailed information about open interest and trading volume for options across different exchanges
+Exchange Open Interest History	https://open-api-v4.coinglass.com/api/option/exchange-oi-history	This endpoint provides historical open interest data for options across different exchanges
+Exchange Volume History	https://open-api-v4.coinglass.com/api/option/exchange-vol-history	This endpoint provides historical trading volume data for options across different exchanges
+Exchange Balance List	https://open-api-v4.coinglass.com/api/exchange/balance/list	This endpoint provides exchange-level asset balance data, including total holdings and percentage changes over 1-day, 7-day, and 30-day periods.
+Exchange Balance Chart	https://open-api-v4.coinglass.com/api/exchange/balance/chart	This endpoint provides historical chart data of exchange asset balances over time, along with corresponding price data.
+Exchange On-chain Transfers (ERC-20)	https://open-api-v4.coinglass.com/api/exchange/chain/tx/list	This endpoint provides on-chain transfer records (ERC-20) for exchanges.
+Hong Kong ETF Flows History	https://open-api-v4.coinglass.com/api/hk-etf/bitcoin/flow-history	This endpoint provides historical data on ETF flow activity for Bitcoin ETFs in the Hong Kong market.
+ETF NetAssets History	https://open-api-v4.coinglass.com/api/etf/bitcoin/net-assets/history	This endpoint provides historical data on the net assets of Bitcoin Exchange-Traded Funds (ETFs).
+ETF Flows History	https://open-api-v4.coinglass.com/api/etf/bitcoin/flow-history	This endpoint provides historical flow data for Bitcoin Exchange-Traded Funds (ETFs), including daily net inflows and outflows in USD, closing prices, and flow breakdowns by individual ETF tickers.
+ETF Premium/Discount History	https://open-api-v4.coinglass.com/api/etf/bitcoin/premium-discount/history	This endpoint provides historical data on the premium or discount rates of Bitcoin Exchange-Traded Funds (ETFs), including Net Asset Value (NAV), market price, and premium/discount percentages for each ETF ticker.
+ETF History	https://open-api-v4.coinglass.com/api/etf/bitcoin/history	This endpoint provides historical data for Bitcoin Exchange-Traded Funds (ETFs), including key information such as market price, Net Asset Value (NAV), premium/discount percentage, shares outstanding, and net assets for each ETF ticker.
+ETF Price History	https://open-api-v4.coinglass.com/api/etf/bitcoin/price/history	This endpoint provides historical price data for Bitcoin Exchange-Traded Funds (ETFs), including open, high, low, and close (OHLC) prices, along with trading volume for each data point.
+ETF Detail	https://open-api-v4.coinglass.com/api/etf/bitcoin/detail	This endpoint provides detailed information on a Bitcoin Exchange-Traded Fund (ETF), including its key attributes and status.
+ETF AUM	https://open-api-v4.coinglass.com/api/etf/bitcoin/aum	This endpoint provides historical Assets Under Management (AUM) data for Bitcoin ETFs
+ETF NetAssets History	https://open-api-v4.coinglass.com/api/etf/ethereum/net-assets/history	This endpoint provides historical net assets data for Ethereum-based Exchange-Traded Funds (ETFs).
+Ethereum ETF List	https://open-api-v4.coinglass.com/api/etf/ethereum/list	This endpoint provides a list of key status information for Ethereum Exchange-Traded Funds (ETFs).
+ETF Flows History	https://open-api-v4.coinglass.com/api/etf/ethereum/flow-history	This endpoint provides a list of key status information regarding the history of ETF flows.
+Holdings List	https://open-api-v4.coinglass.com/api/grayscale/holdings-list	This endpoint provides a list of holdings managed by Grayscale Investments.
+Premium History	https://open-api-v4.coinglass.com/api/grayscale/premium-history	This endpoint provides historical premium/discount data for Grayscale Investment Trusts relative to their NAV.
+RSI List	https://open-api-v4.coinglass.com/api/futures/rsi/list	This endpoint provides the Relative Strength Index (RSI) values for multiple cryptocurrencies across different timeframes.
+Futures Basis	https://open-api-v4.coinglass.com/api/futures/basis/history	This endpoint provides historical futures basis data, including open and close basis rates and their corresponding annualized percentage changes over time.
+Coinbase Premium Index	https://open-api-v4.coinglass.com/api/coinbase-premium-index	This endpoint provides the Coinbase Bitcoin Premium Index, which indicates the price difference between Bitcoin on Coinbase Pro and Binance.
+Bitfinex Margin Long/Short	https://open-api-v4.coinglass.com/api/bitfinex-margin-long-short	This endpoint provides data on margin long and short positions from Bitfinex.
+Borrow Interest Rate	https://open-api-v4.coinglass.com/api/borrow-interest-rate/history	This endpoint provides daily borrowing interest rates for cryptocurrencies.
+AHR999	https://open-api-v4.coinglass.com/api/index/ahr999	This endpoint provides data for AHR999, including the average value, AHR999 value, and corresponding values for different dates.
+Puell-Multiple	https://open-api-v4.coinglass.com/api/index/puell-multiple	This endpoint provides the Puell-Multiple index, which includes data on buy and sell quantities, the price, and the Puell-Multiple value at specific timestamps.
+Stock-to-Flow Model	https://open-api-v4.coinglass.com/api/index/stock-flow	This endpoint provides data for the Stock-to-Flow model, including the price and the number of days remaining until the next halving event for specific timestamps.
+Pi Cycle Top Indicator	https://open-api-v4.coinglass.com/api/index/pi-cycle-indicator	This endpoint provides data for the Pi Cycle Top Indicator, including the 111-day moving average (ma110), the 350-day moving average multiplied by 2 (ma350Mu2), and the price at specific timestamps.
+Golden-Ratio-Multiplier	https://open-api-v4.coinglass.com/api/index/golden-ratio-multiplier	This endpoint provides data for the Golden Ratio Multiplier
+Bitcoin Profitable Days	https://open-api-v4.coinglass.com/api/index/bitcoin/profitable-days	This endpoint provides data for the Bitcoin Profitable Days
+Bitcoin-Rainbow-Chart	https://open-api-v4.coinglass.com/api/index/bitcoin/rainbow-chart	This endpoint provides data for the Bitcoin Rainbow Chart
+Crypto Fear & Greed Index	https://open-api-v4.coinglass.com/api/index/fear-greed-history	This endpoint provides data for the Crypto Fear & Greed Index
+StableCoin MarketCap History	https://open-api-v4.coinglass.com/api/index/stableCoin-marketCap-history	This endpoint provides data for the StableCoin MarketCap History
+Bitcoin Bubble Index	https://open-api-v4.coinglass.com/api/index/bitcoin/bubble-index	This endpoint provides data for the Bitcoin Bubble Index
+Bull Market Peak Indicators	https://open-api-v4.coinglass.com/api/bull-market-peak-indicator	This endpoint provides a list of Bull Market Peak Indicators
+Tow Year Ma Multiplier	https://open-api-v4.coinglass.com/api/index/2-year-ma-multiplier	This endpoint provides data for the Tow Year Ma Multiplier
+200-Week Moving Avg Heatmap	https://open-api-v4.coinglass.com/api/index/200-week-moving-average-heatmap	This endpoint provides data for the 200-Week Moving Avg Heatmap
