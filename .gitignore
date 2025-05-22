@@ -1,0 +1,15 @@
+# Byte-compiled / optimized files
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+venv/
+ENV/
+
+# Output directories
+hobbyist_output/
+data/
+
+# Temporary files
+*.log
+*.tmp
