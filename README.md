@@ -18,6 +18,14 @@ pip install -r requirements.txt
 
 This command downloads the dependencies used in the example scripts.
 
+## Setting Your API Key
+
+1. Copy the file `config.env` and open it in a text editor.
+2. Replace `YOUR_API_KEY` with the key you received from Coinglass.
+3. In the terminal run `source config.env` to load the variable.
+
+Alternatively you can supply the key when running a script using the `--api-key` option.
+
 ✅ Example Usage
 
 curl
@@ -55,13 +63,15 @@ Status Code Description
 Fetch several indicators for Bitcoin and store them in the `data` directory:
 
 ```bash
-python coinglass_scraper.py --symbol BTC --output-dir data --api-key YOUR_KEY
+source config.env  # sets COINGLASS_API_KEY
+python coinglass_scraper.py --symbol BTC --output-dir data
 ```
 
 For current open interest only, run:
 
 ```bash
-python current_oi.py --symbol BTC --output current_oi.csv --api-key YOUR_KEY
+source config.env
+python current_oi.py --symbol BTC --output current_oi.csv
 ```
 
 Each script writes one or more CSV files containing the returned data.
@@ -75,7 +85,8 @@ data (CSV for tables, text for plain messages). You can override this behaviour
 with the `--format` option and choose `csv`, `json`, or `txt`.
 
 ```bash
-python fetch_hobbyist_endpoints.py --api-key YOUR_KEY --output-dir data
+source config.env
+python fetch_hobbyist_endpoints.py --output-dir data
 ```
 
 The script creates the directory `data` if it does not already exist. Inside you
@@ -90,7 +101,8 @@ is named `fetch_<category>.py` where `<category>` matches the part after
 under the `futures` category run:
 
 ```bash
-python fetch_futures.py --api-key YOUR_KEY --output-dir my_data
+source config.env
+python fetch_futures.py --output-dir my_data
 ```
 
 The script automatically sets the category for you, so the only options you need

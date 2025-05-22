@@ -6,7 +6,7 @@ import requests
 from pathlib import Path
 import re
 
-DEFAULT_API_KEY = os.getenv("COINGLASS_API_KEY", "53b0a3236d8d4d2b9fff517c70c544ea")
+DEFAULT_API_KEY = None
 
 # Default list of public endpoints to fetch. Update this path if you
 # maintain your own file of URLs.
@@ -93,9 +93,9 @@ def main() -> None:
     parser = argparse.ArgumentParser(
         description="Fetch data from Hobbyist-accessible Coinglass endpoints"
     )
+    env_key = os.getenv("COINGLASS_API_KEY")
     parser.add_argument(
         "--api-key",
-        default=DEFAULT_API_KEY,
         help="Your Coinglass API key",
     )
     parser.add_argument(
@@ -117,13 +117,17 @@ def main() -> None:
 
     args = parser.parse_args()
 
+    api_key = args.api_key or env_key
+    if not api_key:
+        parser.error("An API key is required. Use --api-key or set COINGLASS_API_KEY.")
+
     out_dir = Path(args.output_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
 
     for title, url in load_endpoints(args.endpoints):
         file_base = out_dir / slugify(title)
         try:
-            data = fetch(url, args.api_key)
+            data = fetch(url, api_key)
             save_response(data, file_base, args.format)
             print(f"Fetched {title}")
         except Exception as exc:

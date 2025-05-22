@@ -5,7 +5,7 @@ import requests
 from pathlib import Path
 import re
 
-DEFAULT_API_KEY = os.getenv("COINGLASS_API_KEY", "53b0a3236d8d4d2b9fff517c70c544ea")
+DEFAULT_API_KEY = None
 ENDPOINT_FILE = "endpoints.txt"
 
 
@@ -49,11 +49,16 @@ def main() -> None:
     parser = argparse.ArgumentParser(
         description="Fetch Coinglass endpoints for a specific category"
     )
-    parser.add_argument("--api-key", default=DEFAULT_API_KEY, help="Your Coinglass API key")
+    env_key = os.getenv("COINGLASS_API_KEY")
+    parser.add_argument("--api-key", help="Your Coinglass API key")
     parser.add_argument("--output-dir", default="category_output", help="Directory to store results")
     parser.add_argument("--endpoints", default=ENDPOINT_FILE, help="Path to endpoints list")
     parser.add_argument("--category", required=True, help="Category to fetch (e.g. futures, spot)")
     args = parser.parse_args()
+
+    api_key = args.api_key or env_key
+    if not api_key:
+        parser.error("An API key is required. Use --api-key or set COINGLASS_API_KEY.")
 
     out_dir = Path(args.output_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -63,7 +68,7 @@ def main() -> None:
             continue
         file_base = out_dir / slugify(title)
         try:
-            data = fetch(url, args.api_key)
+            data = fetch(url, api_key)
             save_json(data, file_base)
             print(f"Fetched {title}")
         except Exception as exc:

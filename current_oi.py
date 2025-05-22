@@ -1,11 +1,12 @@
 import argparse
+import requests
 import csv
 import json
 import os
 import urllib.parse
+import urllib.request
 import requests
 
-DEFAULT_API_KEY = os.getenv("COINGLASS_API_KEY", "53b0a3236d8d4d2b9fff517c70c544ea")
 BASE_URL = "https://open-api-v4.coinglass.com"
 
 
@@ -31,12 +32,17 @@ def save_dict(data: dict, filepath: str) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Fetch current open interest from Coinglass")
-    parser.add_argument("--api-key", default=DEFAULT_API_KEY, help="Coinglass API key if required")
+    env_key = os.getenv("COINGLASS_API_KEY")
+    parser.add_argument("--api-key", help="Coinglass API key")
     parser.add_argument("--symbol", default="BTC", help="Trading symbol, e.g. BTC")
     parser.add_argument("--output", default="current_oi.csv", help="Output CSV file")
     args = parser.parse_args()
 
-    data = fetch("/api/futures/open_interest", {"symbol": args.symbol}, api_key=args.api_key)
+    api_key = args.api_key or env_key
+    if not api_key:
+        parser.error("An API key is required. Use --api-key or set COINGLASS_API_KEY.")
+
+    data = fetch("/api/futures/open_interest", {"symbol": args.symbol}, api_key=api_key)
     content = data.get("data") if isinstance(data, dict) else data
     if isinstance(content, list):
         if content:

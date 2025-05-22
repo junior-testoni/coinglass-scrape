@@ -16,8 +16,6 @@ import os
 import urllib.parse
 import requests
 
-# Default API key used if no environment variable or command-line option is provided
-DEFAULT_API_KEY = "53b0a3236d8d4d2b9fff517c70c544ea"
 
 # Default base URL for the Coinglass open API v4
 BASE_URL = "https://open-api-v4.coinglass.com"
@@ -64,12 +62,16 @@ def save_list_of_dicts(items: list[dict], filepath: str) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Scrape data from Coinglass and store as CSV files")
-    default_key = os.getenv("COINGLASS_API_KEY", DEFAULT_API_KEY)
-    parser.add_argument("--api-key", help="Coinglass API key if required", default=default_key)
+    env_key = os.getenv("COINGLASS_API_KEY")
+    parser.add_argument("--api-key", help="Coinglass API key")
     parser.add_argument("--exchange", help="Exchange for option data", default="Deribit")
     parser.add_argument("--symbol", help="Symbol to query (e.g. BTC)", default="BTC")
     parser.add_argument("--output-dir", help="Directory to store CSV files", default="data")
     args = parser.parse_args()
+
+    api_key = args.api_key or env_key
+    if not api_key:
+        parser.error("An API key is required. Use --api-key or set COINGLASS_API_KEY.")
 
     os.makedirs(args.output_dir, exist_ok=True)
 
@@ -77,7 +79,7 @@ def main() -> None:
         endpoint = meta["path"]
         params = {p: getattr(args, p) for p in meta.get("params", [])}
         try:
-            data = fetch(endpoint, params=params, api_key=args.api_key)
+            data = fetch(endpoint, params=params, api_key=api_key)
             if isinstance(data, dict):
                 content = data.get("data") or data
             else:
