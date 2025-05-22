@@ -10,7 +10,7 @@ DEFAULT_API_KEY = os.getenv("COINGLASS_API_KEY", "53b0a3236d8d4d2b9fff517c70c544
 
 # Default list of public endpoints to fetch. Update this path if you
 # maintain your own file of URLs.
-ENDPOINT_FILE = "endpoints_merged.txt"
+ENDPOINT_FILE = "endpoints.txt"
 
 def fetch(url: str, api_key: str) -> dict:
     """Fetch JSON data from the given URL."""
