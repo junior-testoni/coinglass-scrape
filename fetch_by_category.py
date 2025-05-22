@@ -1,7 +1,7 @@
 import argparse
 import json
 import os
-import urllib.request
+import requests
 from pathlib import Path
 import re
 
@@ -11,12 +11,11 @@ ENDPOINT_FILE = "endpoints.txt"
 
 def fetch(url: str, api_key: str) -> dict:
     """Fetch JSON data from the given URL."""
-    req = urllib.request.Request(url)
-    req.add_header("CG-API-KEY", api_key)
-    with urllib.request.urlopen(req) as resp:
-        if resp.status != 200:
-            raise RuntimeError(f"Request failed: {resp.status}")
-        return json.loads(resp.read().decode())
+    headers = {"CG-API-KEY": api_key}
+    resp = requests.get(url, headers=headers)
+    if resp.status_code != 200:
+        raise RuntimeError(f"Request failed: {resp.status_code}")
+    return resp.json()
 
 
 def load_endpoints(file_path: str):

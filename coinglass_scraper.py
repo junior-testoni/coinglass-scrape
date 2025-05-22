@@ -14,7 +14,7 @@ import csv
 import json
 import os
 import urllib.parse
-import urllib.request
+import requests
 
 
 # Default base URL for the Coinglass open API v4
@@ -36,20 +36,17 @@ ENDPOINTS = {
 def fetch(endpoint: str, params: dict | None = None, api_key: str | None = None) -> dict:
     """Fetch JSON data from the given Coinglass endpoint."""
     url = urllib.parse.urljoin(BASE_URL, endpoint)
-    if params:
-        url += "?" + urllib.parse.urlencode(params)
-
-    req = urllib.request.Request(url)
+    headers = {}
     if api_key:
         # According to the CoinGlass documentation, requests must include the
         # "CG-API-KEY" header for authentication. The old header name
         # "coinglassSecret" no longer works.
-        req.add_header("CG-API-KEY", api_key)
+        headers["CG-API-KEY"] = api_key
 
-    with urllib.request.urlopen(req) as resp:
-        if resp.status != 200:
-            raise RuntimeError(f"Request failed: {resp.status}")
-        return json.loads(resp.read().decode())
+    resp = requests.get(url, headers=headers, params=params)
+    if resp.status_code != 200:
+        raise RuntimeError(f"Request failed: {resp.status_code}")
+    return resp.json()
 
 
 def save_list_of_dicts(items: list[dict], filepath: str) -> None:

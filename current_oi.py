@@ -1,24 +1,24 @@
 import argparse
+import requests
 import csv
 import json
 import os
 import urllib.parse
 import urllib.request
+import requests
+
 BASE_URL = "https://open-api-v4.coinglass.com"
 
 
 def fetch(endpoint: str, params=None, api_key=None) -> dict:
     url = urllib.parse.urljoin(BASE_URL, endpoint)
-    if params:
-        url += "?" + urllib.parse.urlencode(params)
-    req = urllib.request.Request(url)
+    headers = {}
     if api_key:
-        # Updated header name per official CoinGlass API documentation.
-        req.add_header("CG-API-KEY", api_key)
-    with urllib.request.urlopen(req) as resp:
-        if resp.status != 200:
-            raise RuntimeError(f"Request failed: {resp.status}")
-        return json.loads(resp.read().decode())
+        headers["CG-API-KEY"] = api_key
+    resp = requests.get(url, headers=headers, params=params)
+    if resp.status_code != 200:
+        raise RuntimeError(f"Request failed: {resp.status_code}")
+    return resp.json()
 
 
 def save_dict(data: dict, filepath: str) -> None:
