@@ -8,6 +8,16 @@ All requests to the CoinGlass API require authentication using a unique, user-sp
 
 Requests without a valid API Key or missing headers will be rejected with an authentication error.
 
+## Installation
+
+Before running any of the scripts, install the required Python package. Open a terminal in this project folder and run:
+
+```bash
+pip install -r requirements.txt
+```
+
+This command downloads the dependencies used in the example scripts.
+
 ✅ Example Usage
 
 curl
