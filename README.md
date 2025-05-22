@@ -18,6 +18,10 @@ pip install -r requirements.txt
 
 This command downloads the dependencies used in the example scripts.
 
+All Python files rely on a small helper in `api_utils.py` which sends the
+authenticated HTTP requests. You don't need to edit this file—just keep it in
+the same folder as the other scripts.
+
 ## Setting Your API Key
 
 1. Copy the file `config.env` and open it in a text editor.
