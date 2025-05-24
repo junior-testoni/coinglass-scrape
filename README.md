@@ -156,3 +156,21 @@ python coinglass_collector.py --output-dir my_data
 
 It waits about three seconds between requests so that no more than 20 requests are made per minute.
 
+
+## SQLite Data Pipeline
+
+`coinglass_pipeline.py` downloads several futures statistics for a set
+of symbols and keeps them in a small SQLite database. This is useful if
+you want to query the data later without saving multiple CSV files.
+
+Run the script after setting your API key:
+
+```bash
+source config.env  # sets COINGLASS_API_KEY
+python coinglass_pipeline.py --symbols BTC,ETH --db-file my_data.db
+```
+
+The database will contain tables for open interest, funding rates,
+long/short ratios and liquidations. Re-running the command adds any new
+records without duplicating existing ones.
+
