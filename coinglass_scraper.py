@@ -20,13 +20,25 @@ from api_utils import fetch
 # Example endpoints. Additional endpoints can be added to this mapping.
 # Each entry contains the endpoint path and a list of required parameters.
 ENDPOINTS = {
-    "fear_and_greed_history": {"path": "/api/pro/dashboard/bitcoin", "params": []},
+    "fear_and_greed_history": {
+        "path": "/api/index/fear-greed-history",
+        "params": [],
+    },
     # Funding rates typically require a symbol parameter
-    "funding_rates": {"path": "/api/options/OptionGreeks", "params": ["symbol"]},
+    "funding_rates": {
+        "path": "/api/futures/funding-rate/history",
+        "params": ["symbol"],
+    },
     # Open interest history also expects a symbol
-    "open_interest_history": {"path": "/api/futures/open_interest_history", "params": ["symbol"]},
+    "open_interest_history": {
+        "path": "/api/futures/open-interest/history",
+        "params": ["symbol"],
+    },
     # Options max pain requires both symbol and exchange
-    "option_max_pain": {"path": "/api/option/max-pain", "params": ["symbol", "exchange"]},
+    "option_max_pain": {
+        "path": "/api/option/max-pain",
+        "params": ["symbol", "exchange"],
+    },
 }
 
 
