@@ -121,7 +121,7 @@ def main() -> None:
     for title, url in load_endpoints(args.endpoints):
         file_base = out_dir / slugify(title)
         try:
-            data = fetch(url, api_key)
+            data = fetch(url, api_key=api_key)
             save_response(data, file_base, args.format)
             print(f"Fetched {title}")
         except Exception as exc:
