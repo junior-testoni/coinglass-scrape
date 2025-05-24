@@ -144,3 +144,15 @@ python merge_endpoints.py --file1 endpoints.txt --file2 endpoints2.txt --output 
 This command produces `endpoints_merged.txt`. Use that file with
 `fetch_hobbyist_endpoints.py` by adding the `--endpoints endpoints_merged.txt`
 option.
+
+## Simplified Collector Script
+
+If you prefer a single command that downloads everything with safe rate limiting, run `coinglass_collector.py`. The script reads the list of URLs in `endpoints.txt` and saves each response into a subfolder named after the API category.
+
+```bash
+source config.env  # loads COINGLASS_API_KEY
+python coinglass_collector.py --output-dir my_data
+```
+
+It waits about three seconds between requests so that no more than 20 requests are made per minute.
+
