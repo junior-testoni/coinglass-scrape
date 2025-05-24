@@ -3,5 +3,5 @@ import fetch_by_category
 
 if __name__ == "__main__":
     if '--category' not in sys.argv:
-        sys.argv += ['--category', 'option']
+        sys.argv += ['--category', 'options']
     fetch_by_category.main()
