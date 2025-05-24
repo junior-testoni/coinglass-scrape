@@ -62,7 +62,7 @@ def main() -> None:
             continue
         file_base = out_dir / slugify(title)
         try:
-            data = fetch(url, api_key)
+            data = fetch(url, api_key=api_key)
             save_json(data, file_base)
             print(f"Fetched {title}")
         except Exception as exc:
